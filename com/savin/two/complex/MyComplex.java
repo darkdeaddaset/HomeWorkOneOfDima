@@ -36,11 +36,11 @@ public class MyComplex {
     }
 
     public boolean isReal(){
-        return real == 0.0? false : true;
+        return (Double.compare(real, 0d) == 0);
     }
 
     public boolean isImag(){
-        return imag == 0.0? false : true;
+        return (Double.compare(imag, 0d) == 0);
     }
 
     @Override
@@ -51,17 +51,11 @@ public class MyComplex {
     }
 
     public boolean equals(double real, double imag) {
-        if ((Double.compare(this.real, real) == 0) & (Double.compare(this.imag, imag) == 0)){
-            return true;
-        }
-        else return false;
+        return (Double.compare(this.real, real) == 0) & (Double.compare(this.imag, imag) == 0);
     }
 
     public boolean equals(MyComplex another){
-        if ((Double.compare(real, another.getReal()) == 0) & (Double.compare(imag, another.getImag()) == 0)){
-            return true;
-        }
-        else return false;
+        return (Double.compare(real, another.getReal()) == 0) & (Double.compare(imag, another.getImag()) == 0);
     }
 
     public double magnitude(){

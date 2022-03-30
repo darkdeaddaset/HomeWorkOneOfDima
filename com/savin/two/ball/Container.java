@@ -31,12 +31,7 @@ public class Container {
     }
 
     public boolean collides(Ball ball){
-        if (ball.getX() - ball.getRadius() <= this.x1 || ball.getX() - ball.getRadius() >= this.x2){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return !(ball.getX() - ball.getRadius() <= this.x1 || ball.getX() - ball.getRadius() >= this.x2);
     }
 
     @Override

@@ -51,4 +51,26 @@ public class Triangle {
             return "Isosceles";
         }
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || !(this.getClass().equals(object.getClass()))) return false;
+
+        Triangle triangle = (Triangle) object;
+        return this.v1.equals(triangle.v1) && this.v2.equals(triangle.v2) && this.v3.equals(triangle.v3);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        Object[] objs = {v1, v2, v3};
+        for (int i = 0; i <= objs.length-1; i++){
+            Object temp = objs[i];
+            result = 31 * result + (temp == null ? 0 : temp.hashCode());
+        }
+
+        return result;
+    }
 }

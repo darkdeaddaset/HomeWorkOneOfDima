@@ -71,4 +71,23 @@ public class MyPoint {
     public double distance(){
         return Math.sqrt(pow(0 - x, 2) + pow(0 - y, 2));
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || !(this.getClass().equals(object.getClass()))) return false;
+
+        MyPoint myPoint = (MyPoint) object;
+        return this.x == myPoint.x && this.y == myPoint.y;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + x;
+        result = 31 * result + y;
+
+        return result;
+    }
 }

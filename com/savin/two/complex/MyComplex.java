@@ -104,4 +104,23 @@ public class MyComplex {
     public MyComplex getThisComplex(){
         return this;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || !(this.getClass().equals(object.getClass()))) return false;
+
+        MyComplex myComplex = (MyComplex) object;
+        return Double.compare(myComplex.real, this.real) == 0 && Double.compare(myComplex.imag, this.imag) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + (int) (Double.doubleToLongBits(real) ^ (Double.doubleToLongBits(real) >>> 32));
+        result = 31 * result + (int) (Double.doubleToLongBits(imag) ^ (Double.doubleToLongBits(imag) >>> 32));
+
+        return result;
+    }
 }

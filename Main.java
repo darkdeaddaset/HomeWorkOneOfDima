@@ -12,7 +12,7 @@ import com.savin.two.polinom.MyPolynomial;
 
 public class Main {
     public static void main(String[] args){
-        testCircle();
+        /*testCircle();
         testRectangle();
         testEmployee();
         testBook();
@@ -20,7 +20,7 @@ public class Main {
         testTriangle();
         testComplex();
         testPolynomial();
-        testBall();
+        testBall();*/
     }
 
     private static void testCircle(){

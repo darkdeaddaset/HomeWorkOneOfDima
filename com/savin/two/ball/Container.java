@@ -35,6 +35,27 @@ public class Container {
     }
 
     @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || !(this.getClass().equals(object.getClass()))) return false;
+
+        Container container = (Container) object;
+        return this.x1 == container.x1 && this.x2 == container.x2 && this.y1 == container.y1 && this.y2 == container.y2;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + x1;
+        result = 31 * result + x2;
+        result = 31 * result + y1;
+        result = 31 * result + y2;
+
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Container{[" +
                 x1 + ", " + y1 + ")" +

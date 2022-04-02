@@ -1,6 +1,7 @@
 package com.savin.one.book;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Book {
     private String name;
@@ -69,5 +70,39 @@ public class Book {
             }
         }
         return res;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || !(this.getClass().equals(object.getClass()))) return false;
+
+        Book book = (Book) object;
+        return Double.compare(book.price, this.price) == 0 && this.qty == book.qty && this.name.equals(book.name) &&
+                this.authors.equals(book.authors);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + qty;
+        result = 31 * result + (name == null? 0 : name.hashCode());
+        result = 31 * result + (int) (Double.doubleToLongBits(price) ^ (Double.doubleToLongBits(price) >>> 32));
+        result = 31 * result + (authors == null ? 0 : hashMass(authors));
+
+        return result;
+    }
+
+    private int hashMass(Object[] obj){
+        int result = 17;
+
+        if (obj == null) return 0;
+        for (int i = 0; i<obj.length-1; i++){
+            Object temp = obj[i];
+            result = 31 * result + (temp == null? 0 : temp.hashCode());
+        }
+
+        return result;
     }
 }

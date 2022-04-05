@@ -1,4 +1,4 @@
-# HomeWorkOneOfDima
+# HomeWorkOneOfDima (Принято)
 
 # Привет Глеб! Вот моя первая д/з.
 Были добавлены equals и hashCode. В hashCode я реализовал также проверку на то, что поля ссылочного типа не являются null`ом.
